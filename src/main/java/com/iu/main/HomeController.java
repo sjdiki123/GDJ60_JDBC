@@ -1,6 +1,7 @@
 package com.iu.main;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -10,6 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.iu.main.departments.DepartmentDTO;
+import com.iu.main.departments.DepatmentDAO;
+import com.iu.main.locations.LocationDTO;
 
 /**
  * Handles requests for the application home page.
@@ -36,4 +41,19 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping("depatments")
+	public void getDepartments(Model model) throws Exception {
+		
+		DepatmentDAO departmentDAO= new  DepatmentDAO();
+		ArrayList<DepartmentDTO>ar =departmentDAO.getList();
+	model.addAttribute("list",ar);
+		
+		
+	}
+//	@RequestMapping("locations")
+//	public ArrayList<LocationDTO> getLocations() throws Exception {
+//	LocationDTO locationDAO = new LocationDTO();
+//	ArrayList<LocationDTO>ar = locationDAO.getList();
+//	return ar;
 }
+

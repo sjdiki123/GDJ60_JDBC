@@ -1,5 +1,9 @@
 package com.iu.main;
 
+import com.iu.main.departments.DepatmentController;
+import com.iu.main.departments.DepatmentDAO;
+import com.iu.main.locations.LocationController;
+import com.iu.main.locations.LocationDAO;
 import com.iu.main.util.DBConnection;
 
 public class JDBCMain {
@@ -8,19 +12,20 @@ public class JDBCMain {
 
 		System.out.println("start");
 
-		DBConnection con = new DBConnection();
-		
-		
-		// 참조 변 수 명  .멤버들
-		try {
-			con.getConnection();
+		DepatmentController dc = new DepatmentController();
+		LocationController lc = new LocationController();
+		 try {
+			 lc.start();
+			//dc.start();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
-		
+		 
+		 
+		 
 		System.out.println("finish");
 		
 		
