@@ -25,10 +25,14 @@ public class DBConnection {
 		
 	//2DB접속 실행
 		Connection connection = DriverManager.getConnection(url, username, password);
-			
-		
 		return connection;
 		
+		
+	}
+	
+	public static void disConnect(PreparedStatement st, Connection connection) throws Exception{
+		 st.close();
+	      connection.close();
 		
 	}
 	

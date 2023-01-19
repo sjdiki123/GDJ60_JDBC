@@ -41,7 +41,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("depatments")
+	@RequestMapping("departments")
 	public void getDepartments(Model model) throws Exception {
 		
 		DepatmentDAO departmentDAO= new  DepatmentDAO();
