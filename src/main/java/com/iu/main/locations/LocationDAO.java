@@ -11,6 +11,31 @@ import com.iu.main.util.DBConnection;
 
 public class LocationDAO {
 
+	
+	public int updateData(LocationDTO locationDTO) throws Exception{
+		Connection con = DBConnection.getConnection();
+
+		String sql = "UPDATE LOCATIONS SET LOCATION_ID=?,STREET_ADDRESS=?,POSTAL_CODE=?,STATE_PROVINCE=? WHERE LOCATION_ID";
+				
+				PreparedStatement st =con.prepareStatement(sql);
+				st.setString(1, locationDTO.getStreet_address());
+				st.setInt(2, locationDTO.getLocation_id());
+				st.setString(3, locationDTO.getPostal_code());
+				
+				
+				int result =st .executeUpdate();
+
+				
+				DBConnection.disConnect(st, con);
+
+				return result;
+	}
+	
+	
+	
+	
+	
+	
 	public int deleteData(DepartmentDTO departmentDTO) throws Exception{
 		Connection connection = DBConnection.getConnection();
 		String sql ="DELETE LOCATIONS WHERE LOCATION_ID=?";
